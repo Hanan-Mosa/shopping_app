@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'card_widget.dart';
-import 'item_widget.dart';
+import 'main_screen/item_widget.dart';
 import 'text_widget.dart';
 
 class HomeScreen extends StatelessWidget {
