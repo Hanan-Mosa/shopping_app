@@ -93,10 +93,13 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   String? validateEmail(String email) {
-    if (email.contains('@') && email != null) {
+    final bool emailValid = RegExp(
+            r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+        .hasMatch(email);
+    if (email.contains('@') && email != null && emailValid) {
       return null;
     }
-    return 'Email must have @';
+    return 'Email must have @ and a valid email';
   }
 
   String? validateName(String name) {
