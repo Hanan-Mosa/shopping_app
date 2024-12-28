@@ -24,68 +24,70 @@ class _LoginScreenState extends State<LoginScreen> {
         key: _formKey,
         child: Padding(
           padding: const EdgeInsets.all(15.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text(
-                'Sign Up',
-                style: TextStyle(
-                    fontSize: 25,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.black54),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              TextFormFieldWidget(
-                controller: nameController,
-                labelText: 'Full Name',
-                type: TextInputType.name,
-                validate: validateName,
-                hidden: false,
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              TextFormFieldWidget(
-                controller: emailController,
-                labelText: 'Email Address',
-                type: TextInputType.emailAddress,
-                validate: validateEmail,
-                hidden: false,
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              TextFormFieldWidget(
-                controller: passwordController,
-                labelText: 'Password',
-                type: TextInputType.text,
-                validate: validatePassword,
-                hidden: true,
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              TextFormFieldWidget(
-                controller: confirmPasswordController,
-                labelText: 'Confirm Password',
-                type: TextInputType.text,
-                validate: validateConfirmPassword,
-                hidden: true,
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              ElevatedButton(
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      myDialog();
-                    }
-                    setState(() {});
-                  },
-                  child: const Text('Sign up'))
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text(
+                  'Sign Up',
+                  style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black54),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                TextFormFieldWidget(
+                  controller: nameController,
+                  labelText: 'Full Name',
+                  type: TextInputType.name,
+                  validate: validateName,
+                  hidden: false,
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                TextFormFieldWidget(
+                  controller: emailController,
+                  labelText: 'Email Address',
+                  type: TextInputType.emailAddress,
+                  validate: validateEmail,
+                  hidden: false,
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                TextFormFieldWidget(
+                  controller: passwordController,
+                  labelText: 'Password',
+                  type: TextInputType.text,
+                  validate: validatePassword,
+                  hidden: true,
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                TextFormFieldWidget(
+                  controller: confirmPasswordController,
+                  labelText: 'Confirm Password',
+                  type: TextInputType.text,
+                  validate: validateConfirmPassword,
+                  hidden: true,
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                ElevatedButton(
+                    onPressed: () {
+                      if (_formKey.currentState!.validate()) {
+                        myDialog();
+                      }
+                      setState(() {});
+                    },
+                    child: const Text('Sign up'))
+              ],
+            ),
           ),
         ),
       )),
