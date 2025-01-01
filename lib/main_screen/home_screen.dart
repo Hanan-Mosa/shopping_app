@@ -10,7 +10,6 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.setLocale(Locale('ar', 'EG'));
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.deepPurple,

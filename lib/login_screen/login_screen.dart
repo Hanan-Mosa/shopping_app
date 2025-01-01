@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:shopping_app/login_screen/text_form_field_widget.dart';
 import 'package:shopping_app/main_screen/home_screen.dart';
 
@@ -19,7 +20,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    context.setLocale(Locale('ar', 'EG'));
     return SafeArea(
         child: Scaffold(
             body: Form(
@@ -142,13 +142,18 @@ class _LoginScreenState extends State<LoginScreen> {
           content: const Text('Account created successfully'),
           actions: [
             TextButton(
-              onPressed: () {
-                Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(builder: (context) => HomeScreen()));
-              },
-              child: const Text('close'),
-            )
-          ],
+                  onPressed: () {
+                    LoginScreen()
+                        .animate()
+                        .fadeOut(duration: const Duration(seconds: 1));
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                        builder: (context) => HomeScreen()
+                            .animate()
+                            .fadeIn(duration: Duration(seconds: 2))));
+                  },
+                  child: const Text('close'),
+                )
+              ],
         ));
   }
 }
