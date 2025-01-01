@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class CardWidget extends StatelessWidget {
@@ -32,9 +33,9 @@ class CardWidget extends StatelessWidget {
           ),
           InkWell(
               onTap: () {
-                const snackBar = SnackBar(
+                SnackBar snackBar = SnackBar(
                   content: Text(
-                    'Item added to cart',
+                    tr('Item added to cart'),
                     style: TextStyle(fontSize: 18),
                   ),
                 );

@@ -23,7 +23,7 @@ class ItemWidget extends StatelessWidget {
             height: 10,
           ),
           Text(
-            'Product${index + 1}',
+            'product${index + 1}',
             style: const TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.normal,

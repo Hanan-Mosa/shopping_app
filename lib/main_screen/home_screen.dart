@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:shopping_app/main_screen/item_widget.dart';
 
@@ -9,17 +10,18 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.setLocale(Locale('ar', 'EG'));
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.deepPurple,
-          title: const Text('Welcome to our shopping App'),
+          title: Text(tr('welcome to app')),
           centerTitle: true,
         ),
         body: Padding(
           padding: const EdgeInsets.all(8.0),
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-            TextWidget(text: 'Our Products'),
+            TextWidget(text: tr('our products')),
             const SizedBox(
               height: 10,
             ),
@@ -43,7 +45,7 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            TextWidget(text: 'Hot Offers'),
+            TextWidget(text: tr('hot offers')),
             const SizedBox(
               height: 10,
             ),
