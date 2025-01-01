@@ -18,5 +18,13 @@ This app will feature a main screen with multiple sections, displaying products,
 - Elevated button  which when all data validated , navigate to main screen.
 - Dialog to show it if data validated
   
+  # Localization
+  - use pakage easy localization
+  - add two files json for languagues
+  - initialize package in main file
+  - change text to apply change of language
+    
+  
+  
   
   
