@@ -15,14 +15,18 @@ This app will feature a main screen with multiple sections, displaying products,
   ## Widget we used 
 - Form to validate text form fields
 - Text Form Field to take data from user
-- Elevated button  which when all data validated , navigate to main screen.
+- Elevated button which when all data validated , navigate to main screen.
 - Dialog to show it if data validated
-  
+
   # Localization
-  - use pakage easy localization
-  - add two files json for languagues
+  - use package easy localization
+  - add two files json for languages
   - initialize package in main file
   - change text to apply change of language
+  # animation
+  - use package flutter animate
+  - use extension method to animate login screen and home screen
+  
     
   
   
