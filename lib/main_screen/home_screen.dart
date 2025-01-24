@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:shopping_app/main_screen/item_widget.dart';
 
@@ -6,6 +7,8 @@ import 'card_widget.dart';
 import 'text_widget.dart';
 
 class HomeScreen extends StatelessWidget {
+  static const String routeName = "home";
+
   HomeScreen({super.key});
 
   @override
@@ -15,11 +18,19 @@ class HomeScreen extends StatelessWidget {
           backgroundColor: Colors.deepPurple,
           title: Text(tr('welcome to app')),
           centerTitle: true,
+          actions: [
+            IconButton(
+                onPressed: () async {
+                  await FirebaseAuth.instance.signOut();
+                  Navigator.pop(context);
+                },
+                icon: Icon(Icons.logout))
+          ],
         ),
         body: Padding(
           padding: const EdgeInsets.all(8.0),
           child:
-              Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+          Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
             TextWidget(text: tr('our products')),
             const SizedBox(
               height: 10,
