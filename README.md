@@ -26,8 +26,46 @@ This app will feature a main screen with multiple sections, displaying products,
   # animation
   - use package flutter animate
   - use extension method to animate login screen and home screen
+
+# auth
+
+Add firbase authentication to app & add login page.
+
+## Getting Started
+
+### Prerequisites
+
+- Flutter SDK installed on your machine.
+- An IDE (e.g., Android Studio, VS Code) with Flutter and Dart plugins installed.
+
+### Installation
+
+1. **Clone the Repository**:
+
+   ```bash
+   git clone https://github.com/Hanan-Mosa/shopping_app.git
+   ```
+
+2. **Install Dependencies**:
+
+   ```bash
+   flutter pub get
+   ```
+
+3. **Run the App**:
+
+   ```bash
+   flutter run
+   ```
+
+---
+
+## Dependencies
   
-    
+- [firebase_core ](https://pub.dev/packages/firebase_core): To make project support Firbase.
+- [firebase_auth](https://pub.dev/packages/firebase_auth): to support authentication.
+
+---
   
   
   
