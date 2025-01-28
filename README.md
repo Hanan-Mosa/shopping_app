@@ -30,6 +30,9 @@ This app will feature a main screen with multiple sections, displaying products,
 # auth
 
 Add firbase authentication to app & add login page.
+---
+## APP Video Demo
+[ Click here to watch ](https://github.com/Hanan-Mosa/shopping_app/blob/master/output/firebase_auth%20.webm)
 
 ## Getting Started
 
