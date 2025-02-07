@@ -1,30 +1,65 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:local_auth/local_auth.dart';
 import 'package:shopping_app/main_screen/item_widget.dart';
+import 'package:shopping_app/profile/profile_view.dart';
 
 import 'card_widget.dart';
 import 'text_widget.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   static const String routeName = "home";
 
-  HomeScreen({super.key});
+  const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  final LocalAuthentication auth = LocalAuthentication();
+  bool isAuthenticated = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.deepPurple,
-          title: Text(tr('welcome to app')),
-          centerTitle: true,
+          title: Text(
+            tr('welcome to app'),
+            style: const TextStyle(color: Colors.white),
+          ),
           actions: [
             IconButton(
                 onPressed: () async {
-                  await FirebaseAuth.instance.signOut();
-                  Navigator.pop(context);
+                  if (!isAuthenticated) {
+                    try {
+                      bool canAuthenticateWithBiometrics =
+                          await auth.canCheckBiometrics;
+                      bool isDeviceSupported = await auth.isDeviceSupported();
+                      if (canAuthenticateWithBiometrics && isDeviceSupported) {
+                        final bool didAuthenticated = await auth.authenticate(
+                            localizedReason:
+                                'please, authenticate to access profile page ',
+                            options: const AuthenticationOptions(
+                                biometricOnly: true));
+                        setState(() {
+                          isAuthenticated = didAuthenticated;
+                        });
+                        Navigator.pushNamed(context, ProfileView.routeName);
+                      }
+                    } catch (e) {
+                      print(e.toString());
+                    }
+                  } else {
+                    setState(() {
+                      isAuthenticated = false;
+                    });
+                  }
                 },
-                icon: Icon(Icons.logout))
+                icon: const CircleAvatar(
+                    backgroundColor: Colors.white30,
+                    child: Icon(Icons.person, color: Colors.white)))
           ],
         ),
         body: Padding(

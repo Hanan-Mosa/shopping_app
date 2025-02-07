@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shopping_app/auth/login_screen/login_screen.dart';
 import 'package:shopping_app/auth/text_form_field_widget.dart';
 import 'package:shopping_app/dialog_utils.dart';
@@ -96,6 +97,11 @@ class _LoginScreenState extends State<SignUpScreen> {
                             email: emailController.text,
                             password: passwordController.text,
                           );
+
+                          final SharedPreferences prefs =
+                              await SharedPreferences.getInstance();
+                          prefs.setString('name', nameController.text);
+                          prefs.setString('email', emailController.text);
                           clear();
                           DialogUtils.hideLoading(context);
                           DialogUtils.showMessage(

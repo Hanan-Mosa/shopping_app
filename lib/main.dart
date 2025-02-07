@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:shopping_app/auth/login_screen/login_screen.dart';
 import 'package:shopping_app/auth/signup_screen/signup_screen.dart';
 import 'package:shopping_app/main_screen/home_screen.dart';
+import 'package:shopping_app/profile/profile_view.dart';
 
 import 'firebase_options.dart';
 
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Shopping App',
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
@@ -39,7 +41,8 @@ class MyApp extends StatelessWidget {
       routes: {
         LoginScreen.routeName: (context) => LoginScreen(),
         SignUpScreen.routeName: (context) => SignUpScreen(),
-        HomeScreen.routeName: (context) => HomeScreen()
+        HomeScreen.routeName: (context) => HomeScreen(),
+        ProfileView.routeName: (context) => ProfileView()
       },
     );
   }
