@@ -28,11 +28,24 @@ This app will feature a main screen with multiple sections, displaying products,
   - use extension method to animate login screen and home screen
 
 # auth
-
 Add firbase authentication to app & add login page.
+# biometric authentication
+ use that permission to andorid 
+ ```bash
+    <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
+ ```
+we use the `local_auth` plugin to implement biometric authentication.
+* The `_authenticate()` function uses `auth.authenticate()` to prompt the user to scan their fingerprint. 
+* The `biometricOnly: true` option ensures that only biometric authentication (fingerprint, Face ID) is used.
+* The profile icon in actions of the app bar, when pressed.if authentication is successful, the app navigates to the `ProfilePage`. 
+
 ---
 ## APP Video Demo
-[ Click here to watch ](https://github.com/Hanan-Mosa/shopping_app/blob/master/output/firebase_auth%20.webm)
+[ Click here to watch ](https://github.com/user-attachments/assets/36c1c5c1-8f77-4ba8-9c28-465300e4758f)
+
+
+
+
 
 ## Getting Started
 
@@ -67,6 +80,7 @@ Add firbase authentication to app & add login page.
   
 - [firebase_core ](https://pub.dev/packages/firebase_core): To make project support Firbase.
 - [firebase_auth](https://pub.dev/packages/firebase_auth): to support authentication.
+- [local_auth](https://pub.dev/packages/local_auth): to add authentication with biometrics such as fingerprint or facial recognition
 
 ---
   
